@@ -3,7 +3,6 @@
 import mysql.connector
 import dbconfig as cfg
 
-
 class MovieDAO:
     connection=""
     cursor =''
@@ -28,12 +27,6 @@ class MovieDAO:
         )
         self.cursor = self.connection.cursor()
         return self.cursor
-
-    def createDB():
-        cursor = self.getcursor()
-        sql = "CREATE DATABASE datarepresentation"
-        cursor.execute(sql)
-        self.closeAll()
 
     def createDbTable(self):
         cursor = self.getcursor()

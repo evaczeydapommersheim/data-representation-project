@@ -23,7 +23,7 @@
         
         console.log(JSON.stringify(movie));
         $.ajax({
-            "url": "/myMovies",
+            "url": "http://127.0.0.1:5000/myMovies",
             "method":"POST",
             "data":JSON.stringify(movie),
             "dataType": "JSON",
@@ -39,9 +39,9 @@
     }   
    
     function updateMovie(movie, callback){
-        console.log(JSON.stringify(movie));
+        console.log("updating: " + JSON.stringify(movie));
         $.ajax({
-            "url": "/myMovies/"+encodeURI(movie.id),
+            "url": "http://127.0.0.1:5000/myMovies/"+encodeURI(movie.id),
             "method":"PUT",
             "data":JSON.stringify(movie),
             "dataType": "JSON",
@@ -60,7 +60,7 @@
         
         //console.log(JSON.stringify('deleting '+id));
         $.ajax({
-            "url": "/myMovies/"+ id,
+            "url": "/http://127.0.0.1:5000/myMovies/"+ id,
             "method":"DELETE",
             "data":"",
             "dataType": "JSON",

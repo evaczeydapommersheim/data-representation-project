@@ -10,15 +10,6 @@ from movieDAO import movieDAO
 
 app = Flask(__name__, static_url_path='', static_folder = '.')
 
-# myMovies = [
-   # {"id": 1, "Category": "Drama", "Title": "The Shawshank Redemption", "Director": "Frank Darabont", "Actor": "Morgan Freeman", "Year" : 1994},
-   # {"id": 2, "Category": "Drama, Mystery, Thriller", "Title": "The Sixth Sense", "Director": "M. Night Shyamalan", "Actor": "Bruce Willis", "Year" : 1999},
-   # {"id": 3, "Category": "Drama, Romance", "Title": "Forrest Gump", "Director": "Robert Zemeckis", "Actor": "Tom Hanks", "Year" : 1994},
-   # {"id": 4, "Category": "Drama, Romance, Comedy", "Title": "The Terminal", "Director": "Steven Spielberg", "Actor": "Tom Hanks", "Year" : 2004},
-   # {"id": 5, "Category": "Drama, Romance, Comedy", "Title": "As Good as it gets", "Director": "James L. Brooks", "Actor": "Jack Nicholson", "Year" : 1997},
-   # {"id": 6, "Category": "Drama, Romance, Comedy", "Title": "The Terminal", "Director": "Steven Spielberg", "Actor": "Tom Hanks", "Year" : 2004},
-#]
-# nextId = 7
 @app.route('/')
 def index():
     return "Welcome to a list of some of my favourite movies!"
@@ -46,10 +37,6 @@ def findById(id):
 # curl http://127.0.0.1:5000/myMovies/1992
 @app.route('/myMovies/<int:Year>')
 def findByYear(year):
-    #found = list(filter(lambda t : t["Year"]== year, myMovies))
-    #if len(found) == 0:
-    #    return jsonify(()) , 204
-    #return jsonify(found)
     foundYear = movieDAO.findByYear(year)
     return jsonify(foundYear)
 
@@ -74,30 +61,12 @@ def create():
     newId = movieDAO.create(values)
     movie['id'] = newId
     return jsonify(movie)
-    #myMovies.append(movie)
-    #nextId+= 1
-    #return jsonify(movie)
 
 # update
 # curl -X "PUT" -H "content-type:application/json" -d "{\"Actor\":\"Cameron Diaz, Kate Winslet, Jude Law, Jack Black\",}" http://127.0.0.1:5000/myMovies/7
 @app.route('/myMovies/<int:id>', methods = ['PUT'])
 def update(id):
-    #found = list(filter(lambda t : t["id"]== id, myMovies))
-    #if len(found) == 0:
-    #    return jsonify(()) , 404
-    #currentMovie = found[0]
-    
-    #if 'Category' in request.json:
-    #    currentMovie['Category'] = request.json['Category']
-    #if 'Title' in request.json:
-    #    currentMovie['Title'] = request.json['Title']
-    #if 'Director' in request.json:
-    #    currentMovie['Director'] = request.json['Director']
-    #if 'Actor' in request.json:
-    #    currentMovie['Actor'] = request.json['Actor']
-    #if 'Price' in request.json:
-    #    currentMovie['Year'] = request.json['Year']
-    #return jsonify(currentMovie)
+
     foundMovie = movieDAO.findByID(id)
     if not foundMovie:
         abort(404)
@@ -126,13 +95,7 @@ def update(id):
 # curl -X "DELETE" http://127.0.0.1:5000/myMovies/7
 @app.route('/myMovies/<int:id>', methods = ['DELETE'])
 def delete(id):
-    #found = list(filter(lambda t : t["id"]== id, myMovies))
-    #if len(found) == 0:
-    #    return jsonify(()) , 404
-    
-    #myMovies.remove(found[0])
 
-    #return jsonify({"done" : True})
     movieDAO.delete(id)
     return jsonify({"done":True})
 
