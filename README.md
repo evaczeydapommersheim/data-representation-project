@@ -1,7 +1,7 @@
 # This is a project for:
-# **ATU Course **- Higher Diploma in Science in Data Analytics
+# **ATU Course**- Higher Diploma in Science in Data Analytics
 ## **Module**- 23-24: 4682 -- DATA REPRESENTATION
-## **Lecture** - Andrew Beatty
+## **Lecturer** - Andrew Beatty
 ---
 ##  Prepared by Eva Czeyda-Pommersheim
 ---
@@ -26,6 +26,6 @@ The movieDAO.py file was created as a Data Access Object file to establish the C
 5. Create Web Application which represents the data in a nice way.<br><br>
 *A web application was created and designed to represent the data and the create, update, delete functionality of the application by running the server in a virtual environment.* ***Reference movieViewer.html file and a lnked image movie.jpeg*** *as part of the formatting of the web application.*
 
-#### The project included in this repository is a Type A project as described above. 
+#### The project included in this repository is a Type A project as per above specification. 
 
 This project is hosted online in Pythonanywhere under the following [link](http://evaczeydapommersheim.pythonanywhere.com/movieViewer.html). [http://evaczeydapommersheim.pythonanywhere.com/movieViewer.html]
