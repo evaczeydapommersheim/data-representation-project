@@ -18,7 +18,8 @@
             }
         });
 
-    }
+    };
+
     function createMovie(movie, callback){
         
         console.log(JSON.stringify(movie));
@@ -47,7 +48,7 @@
             "dataType": "JSON",
             contentType: "application/json; charset=utf-8",
             "success":function(result){
-               console.log(result);
+               //console.log(result);
                callback(result)
             },
             "error":function(xhr,status,error){
@@ -66,7 +67,7 @@
             "dataType": "JSON",
             contentType: "application/json; charset=utf-8",
             "success":function(result){
-                console.log(result);
+                //console.log(result);
                 callback(result)
             },
             "error":function(xhr,status,error){

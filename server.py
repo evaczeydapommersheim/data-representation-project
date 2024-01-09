@@ -21,6 +21,13 @@ def getAll():
     results = movieDAO.getAll()
     return jsonify(results)
   
+# Get distinct values for Year in table movie
+# curl http://127.0.0.1:5000/myMovies
+@app.route('/myMovies')
+def getUniqueValues():
+    results = movieDAO.getUniqueValues()
+    return jsonify(results)
+
 
 #find by ID
 # curl http://127.0.0.1:5000/myMovies/1
@@ -35,7 +42,7 @@ def findById(id):
 
 # Find by year
 # curl http://127.0.0.1:5000/myMovies/1992
-@app.route('/myMovies/<int:Year>')
+@app.route('/myMovies/<Year>')
 def findByYear(year):
     foundYear = movieDAO.findByYear(year)
     return jsonify(foundYear)

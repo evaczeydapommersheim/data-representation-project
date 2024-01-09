@@ -1,7 +1,7 @@
 from movieDAO import movieDAO
 # Create DB Table movie
-# result = movieDAO.createDbTable()
-
+#result = movieDAO.createDbTable()
+ 
 # Create movies in the movie table
 #dbRows = [
 #    ("Drama", "The Shawshank Redemption", "Frank Darabont", "Morgan Freeman", 1994),
@@ -19,6 +19,8 @@ from movieDAO import movieDAO
 # create movie
 #newMovie = movieDAO.create(("Drama, Romance", "Good Will Hunting", "Gus Van Sant", "Robin Williams", 1997))
 
+# TESTING CODE FROM movieDAO.py file
+
 # Find by id
 #result = movieDAO.findByID(newMovie)
 #print ("test create and find by id")
@@ -30,7 +32,6 @@ from movieDAO import movieDAO
 #print(results)
 
 # Update
-
 #movieDAO.update(("Crime, Drama, Mystery", "Seven", "David Fincher", "Brad Pitt, Morgan Freeman", 1995, 8))
 #result = movieDAO.findByID(8)
 #print("test update")
@@ -41,7 +42,6 @@ from movieDAO import movieDAO
 #allMovies = movieDAO.getAll()
 #for movie in allMovies:
 #  print(movie)
-
 
 
 # Delete movie id = 7 in the movie table

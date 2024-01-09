@@ -1,6 +1,7 @@
 # This is the Data Access object (DAO) file for Data Prepresentation 2023/24 project Type A
 
 import mysql.connector
+
 import dbconfig as cfg
 
 class MovieDAO:
@@ -59,7 +60,6 @@ class MovieDAO:
         for result in results:
             print(result)
             returnArray.append(self.convertToDictionary(result))
-        
         self.closeAll()
         return returnArray
 
@@ -73,19 +73,6 @@ class MovieDAO:
         returnvalue = self.convertToDictionary(result)
         self.closeAll()
         return returnvalue
-    
-    def findByYear(self, year):
-        cursor = self.getcursor()
-        sql="select * from movie where Year = %s"
-        values = (year,)
-
-        cursor.execute(sql, values)
-        results = cursor.fetchall()
-        returnArray = []
-        for result in results:
-            returnArray.append(self.convertToDictionary(result))
-        self.closeAll()
-        return returnArray
 
     def update(self, values):
         cursor = self.getcursor()
@@ -105,6 +92,30 @@ class MovieDAO:
         self.closeAll()
         
         print("delete done")
+
+    def getUniqueValues(self):
+        cursor = self.getcursor()
+        sql = "select distinct Year from movie"
+        cursor.execute(sql)
+        results = cursor.fetchall()
+        print(results)
+        returnArray = []
+        for result in results:
+            returnArray.append(result)
+        self.closeAll()
+        return returnArray
+ 
+    def findByYear(self, year):
+        cursor = self.getcursor()
+        sql="select * from movie where Year = %s"
+        values = (year,)
+        cursor.execute(sql, values)
+        results = cursor.fetchall()
+        returnArray = []
+        for result in results:
+            returnArray.append(self.convertToDictionary(result))
+        self.closeAll()
+        return returnArray
 
     def convertToDictionary(self, result):
         colnames=['id','Category','Title', "Director", 'Actor', 'Year']
